@@ -26,7 +26,7 @@ class Incident(Base):
     incident_group = Column(ARRAY(String(200)), nullable=True)
     sub_group = Column(ARRAY(String(200)), nullable=True)
     critical_incident = Column(String(10), nullable=True)
-    risk_category = Column(String(200), nullable=True)
+    risk_category = Column(ARRAY(String(200)), nullable=True)
 
     # Severity
     actual_severity = Column(String(50), nullable=True)

@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, Query, HTTPException
+from typing import List
+from fastapi import APIRouter, Depends, Query, HTTPException, File, UploadFile, Form
 from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import desc
 from database import get_db
@@ -6,10 +7,36 @@ from models.incident import Incident
 from models.attachment import IncidentAttachment
 from models.workflow import WorkflowEvent
 from models.user import User
-from schemas.schemas import IncidentCreate, StatusUpdate
+from models.incident_details import InvolvedPerson
+from schemas.schemas import IncidentCreate, StatusUpdate, IncidentUpdate
 from datetime import datetime
+from ai_services.gemini_service import analyze_media
 
 router = APIRouter(prefix="/api/incidents", tags=["Incidents"])
+
+
+@router.post("/analyze")
+async def analyze_incident(
+    files: List[UploadFile] = File(...), 
+    description: str = Form(None),
+    db: Session = Depends(get_db)
+):
+    """Analyze multiple uploaded photo/video/audio with Gemini AI for form population."""
+    media_data = []
+    for file in files:
+        file_bytes = await file.read()
+        media_data.append((file_bytes, file.content_type))
+    
+    result = analyze_media(media_data, db, user_context=description or "")
+    return result
+
+
+@router.get("/refs")
+def get_incident_refs(db: Session = Depends(get_db)):
+    """Returns all unique incident_ref values sorted descending."""
+    # Getting only the incident_ref strings, sorted.
+    results = db.query(Incident.incident_ref).order_by(desc(Incident.incident_ref)).all()
+    return [r[0] for r in results]
 
 
 def generate_incident_ref(db: Session) -> str:
@@ -52,6 +79,19 @@ def format_incident(incident, db: Session):
         "id": incident.id,
         "incident_ref": incident.incident_ref,
         "status": incident.status,
+        "involved_persons": [
+            {
+                "id": p.id,
+                "worker_type": p.worker_type,
+                "person_id": p.person_id,
+                "person_name": p.person_name,
+                "employee_id": p.employee_id,
+                "age": p.age,
+                "department": p.department,
+                "designation": p.designation,
+                "particulars": p.particulars
+            } for p in incident.involved_persons
+        ],
         "incident_title": incident.incident_title or "--",
         "incident_type": incident.incident_type or "--",
         "incident_group": incident.incident_group or "--",
@@ -105,6 +145,10 @@ def create_incident(data: IncidentCreate, db: Session = Depends(get_db)):
         db_attr = IncidentAttachment(**attr.model_dump())
         incident.attachments.append(db_attr)
         
+    for person in (data.involved_persons or []):
+        db_person = InvolvedPerson(**person.model_dump())
+        incident.involved_persons.append(db_person)
+
     db.add(incident)
     db.flush()
 
@@ -124,6 +168,9 @@ def list_incidents(
     incident_type: str = None,
     incident_group: str = None,
     shift: str = None,
+    incident_ref: str = None,
+    start_date: str = None,
+    end_date: str = None,
     page: int = Query(1, ge=1),
     page_size: int = Query(10, ge=1, le=100),
     db: Session = Depends(get_db)
@@ -138,6 +185,23 @@ def list_incidents(
         query = query.filter(Incident.incident_group.contains([incident_group]))
     if shift:
         query = query.filter(Incident.shift == shift)
+    if incident_ref:
+        query = query.filter(Incident.incident_ref.ilike(f"%{incident_ref}%"))
+    if start_date:
+        try:
+            start_dt = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
+            query = query.filter(Incident.incident_date >= start_dt)
+        except ValueError:
+            pass
+    if end_date:
+        try:
+            # Set end_dt to the end of the day if it's just a date
+            end_dt = datetime.fromisoformat(end_date.replace("Z", "+00:00"))
+            if end_dt.hour == 0 and end_dt.minute == 0:
+                end_dt = end_dt.replace(hour=23, minute=59, second=59)
+            query = query.filter(Incident.incident_date <= end_dt)
+        except ValueError:
+            pass
 
     total = query.count()
     items = query.order_by(desc(Incident.created_at)).offset((page - 1) * page_size).limit(page_size).all()
@@ -160,7 +224,33 @@ def update_status(incident_id: int, data: StatusUpdate, db: Session = Depends(ge
         raise HTTPException(status_code=404, detail="Incident not found")
 
     incident.status = data.status
+    update_workflow_status(incident_id, data.status, db)
+    db.commit()
+    return {"status": "updated", "new_status": data.status}
 
+
+@router.put("/{incident_id}")
+def update_incident(incident_id: int, data: IncidentUpdate, db: Session = Depends(get_db)):
+    incident = db.query(Incident).filter(Incident.id == incident_id).first()
+    if not incident:
+        raise HTTPException(status_code=404, detail="Incident not found")
+
+    # Update all fields provided in the body
+    update_data = data.dict(exclude_unset=True)
+    
+    # Special handling for status to update workflow timestamps
+    if "status" in update_data and update_data["status"] != incident.status:
+        update_workflow_status(incident_id, update_data["status"], db)
+
+    for key, value in update_data.items():
+        setattr(incident, key, value)
+
+    db.commit()
+    db.refresh(incident)
+    return format_incident(incident, db)
+
+
+def update_workflow_status(incident_id: int, new_status: str, db: Session):
     workflow = db.query(WorkflowEvent).filter(WorkflowEvent.incident_id == incident_id).first()
     if workflow:
         now = datetime.utcnow()
@@ -170,9 +260,6 @@ def update_status(incident_id: int, data: StatusUpdate, db: Session = Depends(ge
             "Investigation": "investigated_at",
             "Resolution": "resolved_at",
         }
-        field = status_map.get(data.status)
+        field = status_map.get(new_status)
         if field:
             setattr(workflow, field, now)
-
-    db.commit()
-    return {"status": "updated", "new_status": data.status}

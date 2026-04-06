@@ -21,6 +21,33 @@ class AttachmentResponse(BaseModel):
         from_attributes = True
 
 
+# --- Involved Person Schemas ---
+
+class InvolvedPersonCreate(BaseModel):
+    worker_type: Optional[str] = None
+    person_id: Optional[int] = None
+    person_name: Optional[str] = None
+    employee_id: Optional[str] = None
+    age: Optional[int] = None
+    department: Optional[str] = None
+    designation: Optional[str] = None
+    particulars: Optional[str] = None
+
+class InvolvedPersonResponse(BaseModel):
+    id: int
+    worker_type: Optional[str] = None
+    person_id: Optional[int] = None
+    person_name: Optional[str] = None
+    employee_id: Optional[str] = None
+    age: Optional[int] = None
+    department: Optional[str] = None
+    designation: Optional[str] = None
+    particulars: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+
 # --- Incident Schemas ---
 
 class IncidentCreate(BaseModel):
@@ -31,7 +58,7 @@ class IncidentCreate(BaseModel):
     incident_group: Optional[List[str]] = None
     sub_group: Optional[List[str]] = None
     critical_incident: Optional[str] = None
-    risk_category: Optional[str] = None
+    risk_category: Optional[List[str]] = None
     actual_severity: Optional[str] = None
     potential_severity: Optional[str] = None
     shift_manager_id: Optional[int] = None
@@ -55,6 +82,7 @@ class IncidentCreate(BaseModel):
     reported_date: Optional[datetime] = None
     incident_date: Optional[datetime] = None
     attachments: Optional[List[AttachmentCreate]] = []
+    involved_persons: Optional[List[InvolvedPersonCreate]] = []
 
     @field_validator(
         "shift_manager_id", "shift_superintendent_id", "reported_by_id", "reported_to_id",
@@ -79,7 +107,7 @@ class IncidentResponse(BaseModel):
     area_of_incident: Optional[str] = None
     sub_area: Optional[str] = None
     operational_activity: Optional[str] = None
-    risk_category: Optional[str] = None
+    risk_category: Optional[List[str]] = None
     actual_severity: Optional[str] = None
     potential_severity: Optional[str] = None
     critical_incident: Optional[str] = None
@@ -95,6 +123,7 @@ class IncidentResponse(BaseModel):
     incident_date: Optional[datetime] = None
     created_at: Optional[datetime] = None
     attachments: Optional[List[AttachmentResponse]] = []
+    involved_persons: Optional[List[InvolvedPersonResponse]] = []
 
     class Config:
         from_attributes = True
@@ -107,6 +136,43 @@ class IncidentListResponse(BaseModel):
 
 class StatusUpdate(BaseModel):
     status: str
+
+
+class IncidentUpdate(BaseModel):
+    incident_type: Optional[List[str]] = None
+    area_of_incident: Optional[str] = None
+    sub_area: Optional[str] = None
+    operational_activity: Optional[str] = None
+    incident_group: Optional[List[str]] = None
+    sub_group: Optional[List[str]] = None
+    critical_incident: Optional[str] = None
+    risk_category: Optional[List[str]] = None
+    actual_severity: Optional[str] = None
+    potential_severity: Optional[str] = None
+    shift_manager_id: Optional[int] = None
+    shift_superintendent_id: Optional[int] = None
+    weather: Optional[str] = None
+    sea_state: Optional[str] = None
+    shift: Optional[str] = None
+    time_of_day: Optional[str] = None
+    shipping_line: Optional[str] = None
+    container_number: Optional[str] = None
+    shipping_line_informed: Optional[str] = None
+    uin_number: Optional[str] = None
+    incident_title: Optional[str] = None
+    reportable: Optional[str] = None
+    recordable: Optional[str] = None
+    description: Optional[str] = None
+    immediate_action: Optional[str] = None
+    classification: Optional[str] = None
+    reported_by_id: Optional[int] = None
+    reported_to_id: Optional[int] = None
+    status: Optional[str] = None
+    reported_date: Optional[datetime] = None
+    incident_date: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
 
 
 # --- RCA Schemas ---

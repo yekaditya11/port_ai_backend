@@ -10,7 +10,11 @@ class InvolvedPerson(Base):
     incident_id = Column(Integer, ForeignKey("incidents.id", ondelete="CASCADE"), nullable=False)
     worker_type = Column(String(100), nullable=True)
     person_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    person_name = Column(String(200), nullable=True)
+    employee_id = Column(String(50), nullable=True)
     age = Column(Integer, nullable=True)
+    department = Column(String(200), nullable=True)
+    designation = Column(String(200), nullable=True)
     particulars = Column(Text, nullable=True)
 
     incident = relationship("Incident", back_populates="involved_persons")

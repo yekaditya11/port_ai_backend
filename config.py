@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     app_host: str = "0.0.0.0"
     app_port: int = 8000
     cors_origins: str = "http://localhost:3000,http://127.0.0.1:3000"
+    google_api_key: str = "AIzaSyCjO3Ou3uIKgoQl1G410x3IJTsJJYP3cwM"
 
     class Config:
         env_file = ".env"
