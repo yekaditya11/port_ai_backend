@@ -306,3 +306,71 @@ def format_chatbot_response(
         "response_type": response_type,
         "table": table if response_type in {"table", "both"} else None,
     }
+
+
+def build_chart_recommendation_prompt(plan: dict, query_result: dict) -> str:
+    return f"""
+You are the chart configuration recommender for a frontend React application using Recharts.
+Analyze the SQL_RESULT, determine whether the data should be plotted, and if so, map the data into a standard chart configuration.
+
+Rules:
+1. Return ONLY raw JSON. No markdown block.
+2. chart_type must be precisely one of: "bar", "pie", "line", "none".
+   - If the query produces a single number, or detail about a single event, return "none".
+   - If the data represents a grouping (like status, area, or activity categorizations), return "bar" or "pie".
+   - If the query represents a time series, return "line".
+   - If SQL_RESULT is empty, return "none".
+3. Provide x_key and y_key if the chart_type is not "none".
+   - x_key usually represents the category or grouping (e.g., "status").
+   - y_key usually represents the numerical measure (e.g., "total").
+4. chart_data should be a JSON array of objects representing the rows. Map the columns correctly.
+
+Expected JSON representation:
+{{
+    "chart_type": "pie",
+    "chart_data": [{{"name": "Open", "value": 15}}, {{"name": "Closed", "value": 45}}],
+    "x_key": "name",
+    "y_key": "value"
+}}
+
+QUERY PLAN:
+{json.dumps(plan, indent=2, default=str)}
+
+SQL_RESULT:
+{json.dumps(query_result, indent=2, default=str)}
+""".strip()
+
+
+def recommend_chart(plan: dict, query_result: dict) -> dict:
+    client = get_chatbot_gemini_client()
+    prompt = build_chart_recommendation_prompt(plan, query_result)
+    response = client.models.generate_content(
+        model="gemini-flash-latest",
+        contents=[prompt],
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0,
+        ),
+    )
+    
+    data = _clean_json_response(response.text or "{}")
+    
+    chart_type = data.get("chart_type")
+    
+    if chart_type not in {"bar", "pie", "line", "none"}:
+        chart_type = "none"
+
+    if chart_type == "none" or not data.get("chart_data"):
+        return {
+            "chart_type": "none",
+            "chart_data": None,
+            "x_key": None,
+            "y_key": None,
+        }
+    
+    return {
+        "chart_type": chart_type,
+        "chart_data": data.get("chart_data"),
+        "x_key": data.get("x_key"),
+        "y_key": data.get("y_key"),
+    }
