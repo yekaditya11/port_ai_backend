@@ -14,21 +14,35 @@ from ai_services.gemini_service import analyze_media
 
 router = APIRouter(prefix="/api/incidents", tags=["Incidents"])
 
+try:
+    import multipart  # noqa: F401
+    MULTIPART_INSTALLED = True
+except ImportError:
+    MULTIPART_INSTALLED = False
 
-@router.post("/analyze")
-async def analyze_incident(
-    files: List[UploadFile] = File(...), 
-    description: str = Form(None),
-    db: Session = Depends(get_db)
-):
-    """Analyze multiple uploaded photo/video/audio with Gemini AI for form population."""
-    media_data = []
-    for file in files:
-        file_bytes = await file.read()
-        media_data.append((file_bytes, file.content_type))
-    
-    result = analyze_media(media_data, db, user_context=description or "")
-    return result
+
+if MULTIPART_INSTALLED:
+    @router.post("/analyze")
+    async def analyze_incident(
+        files: List[UploadFile] = File(...),
+        description: str = Form(None),
+        db: Session = Depends(get_db)
+    ):
+        """Analyze multiple uploaded photo/video/audio with Gemini AI for form population."""
+        media_data = []
+        for file in files:
+            file_bytes = await file.read()
+            media_data.append((file_bytes, file.content_type))
+
+        result = analyze_media(media_data, db, user_context=description or "")
+        return result
+else:
+    @router.post("/analyze")
+    async def analyze_incident_unavailable():
+        raise HTTPException(
+            status_code=503,
+            detail="AI analysis is unavailable. Install `python-multipart` and `google-genai` in the active virtual environment.",
+        )
 
 
 @router.get("/refs")
