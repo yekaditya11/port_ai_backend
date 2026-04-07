@@ -9,24 +9,51 @@ router = APIRouter(prefix="/api/dashboard", tags=["Dashboard"])
 
 
 @router.get("/stats")
-def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
+def get_dashboard_stats(
+    days: int = 30, 
+    start_date: str = Query(None), 
+    end_date: str = Query(None), 
+    db: Session = Depends(get_db)
+):
     """Aggregated stats for the Dashboard page — stat cards, charts, tables."""
     now = datetime.utcnow()
-    cutoff_30 = now - timedelta(days=30)
-    cutoff_90 = now - timedelta(days=90)
+    
+    if start_date and end_date:
+        try:
+            # Handle potential ISO format differences
+            cutoff_start = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
+            cutoff_end = datetime.fromisoformat(end_date.replace("Z", "+00:00"))
+            duration_days = (cutoff_end - cutoff_start).days or 1
+        except ValueError:
+            cutoff_start = now - timedelta(days=days)
+            cutoff_end = now
+            duration_days = days
+    else:
+        cutoff_start = now - timedelta(days=days)
+        cutoff_end = now
+        duration_days = days
+
+    cutoff_90 = now - timedelta(days=90) # Still useful for some table comparisons
 
     # --- Stat Cards ---
-    total_incidents = db.query(func.count(Incident.id)).filter(Incident.created_at >= cutoff_30).scalar() or 0
-    open_incidents = db.query(func.count(Incident.id)).filter(Incident.status.notin_(["Closed", "Resolution"])).scalar() or 0
-
-    # Distinct days with incidents in last 30 days
-    incident_days = db.query(func.count(func.distinct(func.date(Incident.incident_date)))).filter(
-        Incident.incident_date >= cutoff_30
+    total_incidents = db.query(func.count(Incident.id)).filter(
+        Incident.created_at >= cutoff_start, 
+        Incident.created_at <= cutoff_end
+    ).scalar() or 0
+    
+    open_incidents = db.query(func.count(Incident.id)).filter(
+        Incident.status.notin_(["Closed", "Resolution"])
     ).scalar() or 0
 
-    incident_free_days = 30 - incident_days
+    # Distinct days with incidents in custom range
+    incident_days = db.query(func.count(func.distinct(func.date(Incident.incident_date)))).filter(
+        Incident.incident_date >= cutoff_start,
+        Incident.incident_date <= cutoff_end
+    ).scalar() or 0
 
-    # Days since last injury
+    incident_free_days = max(0, duration_days - incident_days)
+
+    # Days since last injury (Global, regardless of range)
     last_injury = db.query(func.max(Incident.incident_date)).filter(
         Incident.incident_type.contains(["Injury & Ill Health"])
     ).scalar()
@@ -42,14 +69,17 @@ def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
     }
 
     # --- By Incident Type (Pie Chart) ---
-    # We fetch all types and count in Python for maximum robustness with ARRAY columns
-    all_types = db.query(Incident.incident_type).filter(Incident.incident_type.isnot(None)).all()
+    all_types = db.query(Incident.incident_type).filter(
+        Incident.incident_type.isnot(None),
+        Incident.created_at >= cutoff_start,
+        Incident.created_at <= cutoff_end
+    ).all()
     type_counts = {}
     for (t_list,) in all_types:
         if isinstance(t_list, list):
             for t in t_list:
                 type_counts[t] = type_counts.get(t, 0) + 1
-        elif t_list: # Fallback for flat strings
+        elif t_list:
             type_counts[t_list] = type_counts.get(t_list, 0) + 1
     
     by_incident_type = [{"name": t, "value": c} for t, c in type_counts.items()]
@@ -58,7 +88,9 @@ def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
     area_rows = db.query(
         Incident.area_of_incident, func.count(Incident.id)
     ).filter(
-        Incident.area_of_incident.isnot(None)
+        Incident.area_of_incident.isnot(None),
+        Incident.created_at >= cutoff_start,
+        Incident.created_at <= cutoff_end
     ).group_by(Incident.area_of_incident).order_by(func.count(Incident.id).desc()).limit(6).all()
 
     by_work_area = [{"name": a, "count": c} for a, c in area_rows]
@@ -66,13 +98,16 @@ def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
     # --- By Status (Bar Chart) ---
     status_rows = db.query(
         Incident.status, func.count(Incident.id)
+    ).filter(
+        Incident.created_at >= cutoff_start,
+        Incident.created_at <= cutoff_end
     ).group_by(Incident.status).all()
 
     all_statuses = ["New", "Review", "Investigation", "Overdue", "Reopened", "Resolved", "Rejected", "Inspection"]
     status_map = {s: c for s, c in status_rows}
     by_status = [{"name": s, "value": status_map.get(s, 0)} for s in all_statuses]
 
-    # --- Overview Table (30-day & 90-day counts by severity/type) ---
+    # --- Overview Table ---
     overview_types = [
         ("Fatality", "5-Catastrophic"),
         ("Serious Injury", "4-Major"),
@@ -83,15 +118,20 @@ def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
     overview_table = []
     for label, severity in overview_types:
         if severity:
-            q30 = db.query(func.count(Incident.id)).filter(
-                Incident.actual_severity == severity, Incident.created_at >= cutoff_30
+            q_current = db.query(func.count(Incident.id)).filter(
+                Incident.actual_severity == severity, 
+                Incident.created_at >= cutoff_start,
+                Incident.created_at <= cutoff_end
             ).scalar() or 0
+            # For comparison logic, we still use a default 90-day window or similar
             q90 = db.query(func.count(Incident.id)).filter(
                 Incident.actual_severity == severity, Incident.created_at >= cutoff_90
             ).scalar() or 0
         else:
-            q30 = db.query(func.count(Incident.id)).filter(
-                Incident.incident_type.contains([label]), Incident.created_at >= cutoff_30
+            q_current = db.query(func.count(Incident.id)).filter(
+                Incident.incident_type.contains([label]), 
+                Incident.created_at >= cutoff_start,
+                Incident.created_at <= cutoff_end
             ).scalar() or 0
             q90 = db.query(func.count(Incident.id)).filter(
                 Incident.incident_type.contains([label]), Incident.created_at >= cutoff_90
@@ -99,21 +139,23 @@ def get_dashboard_stats(days: int = 30, db: Session = Depends(get_db)):
 
         overview_table.append({
             "type": label,
-            "last_30": q30,
-            "var_30": f"100%({q30})" if q30 > 0 else "0(0)",
+            "last_30": q_current,
+            "var_30": f"100%({q_current})" if q_current > 0 else "0(0)",
             "last_90": q90,
             "var_90": f"100%({q90})" if q90 > 0 else "0(0)",
         })
 
-    # --- Accidents Timeline (per 5-day bucket) ---
+    # --- Accidents Timeline ---
     accidents_timeline = []
-    for bucket in range(0, 35, 5):
-        start = now - timedelta(days=30 - bucket)
-        end = now - timedelta(days=25 - bucket) if bucket < 30 else now
+    # Dynamic buckets based on duration
+    bucket_size = max(1, duration_days // 6)
+    for bucket_start_day in range(0, duration_days, bucket_size):
+        b_start = cutoff_start + timedelta(days=bucket_start_day)
+        b_end = min(cutoff_end, b_start + timedelta(days=bucket_size))
         count = db.query(func.count(Incident.id)).filter(
-            Incident.incident_date >= start, Incident.incident_date < end
+            Incident.incident_date >= b_start, Incident.incident_date < b_end
         ).scalar() or 0
-        accidents_timeline.append({"day_bucket": f"{bucket} Days", "count": count})
+        accidents_timeline.append({"day_bucket": f"{bucket_start_day} Days", "count": count})
 
     return {
         "stat_cards": stat_cards,
