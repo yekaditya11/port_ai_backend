@@ -1,6 +1,6 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Optional, List, Any
-from datetime import datetime, date
+from datetime import datetime, date, time
 
 
 # --- Attachment Schemas ---
@@ -136,6 +136,169 @@ class IncidentListResponse(BaseModel):
 
 class StatusUpdate(BaseModel):
     status: str
+
+
+class ObservationCreate(BaseModel):
+    reported_date: date
+    reported_time: time
+    area_of_observation: str
+    business_unit: str
+    department: str
+    designation: str
+    operational_activity: str
+    observation_group: str
+    specific_detail: str
+    description: str
+    reporter_confirmation: bool
+
+    video_feed: Optional[str] = None
+    is_anonymous: bool = False
+    near_miss: bool = False
+    time_of_day: Optional[str] = None
+    shift: Optional[str] = None
+    operational_department: Optional[str] = None
+    sub_area: Optional[str] = None
+    reported_by: Optional[str] = None
+    weather: Optional[str] = None
+    observation_type: Optional[str] = None
+    potential_severity: Optional[str] = None
+    observation_category: Optional[str] = None
+    hazard_category: Optional[str] = None
+    risk_category: Optional[str] = None
+    repeated_observation_number: Optional[str] = None
+    involved_personnel: Optional[str] = None
+    immediate_action: Optional[str] = None
+
+
+class ObservationResponse(BaseModel):
+    id: int
+    observation_ref: str
+    status: str
+    reported_date: datetime
+    video_feed: Optional[str] = None
+    is_anonymous: bool
+    near_miss: bool
+    time_of_day: Optional[str] = None
+    shift: Optional[str] = None
+    operational_department: Optional[str] = None
+    area_of_observation: str
+    sub_area: Optional[str] = None
+    reported_by: Optional[str] = None
+    business_unit: str
+    department: str
+    designation: str
+    weather: Optional[str] = None
+    observation_type: Optional[str] = None
+    operational_activity: str
+    potential_severity: Optional[str] = None
+    observation_category: Optional[str] = None
+    hazard_category: Optional[str] = None
+    observation_group: str
+    specific_detail: str
+    risk_category: Optional[str] = None
+    repeated_observation_number: Optional[str] = None
+    involved_personnel: Optional[str] = None
+    description: str
+    immediate_action: Optional[str] = None
+    reporter_confirmation: bool
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class ObservationListItem(BaseModel):
+    observation_ref: str
+    reported_by_name: Optional[str] = None
+    designation: Optional[str] = None
+    reported_date: datetime
+    area_of_observation: str
+    sub_area: Optional[str] = None
+    observation_group: str
+    observation_type: Optional[str] = None
+    status: str
+
+
+class ObservationListResponse(BaseModel):
+    total: int
+    items: List[ObservationListItem]
+
+
+class ObservationStatsBucket(BaseModel):
+    name: str
+    value: int
+
+
+class ObservationTimelinePoint(BaseModel):
+    date: date
+    count: int
+
+
+class ObservationSummaryStats(BaseModel):
+    last_24h: int
+    last_30d: int
+    closed_on_time: int
+    overdue: int
+    total: int
+
+
+class ObservationStatsResponse(BaseModel):
+    top_risk_categories: List[ObservationStatsBucket]
+    area_details: List[ObservationStatsBucket]
+    operational_activities: List[ObservationStatsBucket]
+    status_distribution: List[ObservationStatsBucket]
+    timeline: List[ObservationTimelinePoint]
+    summary_stats: ObservationSummaryStats
+    near_misses: int
+
+
+class ObservationFactorOption(BaseModel):
+    id: int
+    label: str
+
+
+class ObservationFactorOptionsResponse(BaseModel):
+    preconditions: List[ObservationFactorOption]
+    underlying_causes: List[ObservationFactorOption]
+
+
+class ObservationUnsafeABC(BaseModel):
+    primary_factor: Optional[int] = Field(default=None, alias="primaryFactor")
+    precondition: Optional[int] = None
+    underlying_cause: Optional[int] = Field(default=None, alias="underlyingCause")
+    cause: Optional[str] = None
+
+    model_config = ConfigDict(populate_by_name=True)
+
+    @field_validator("primary_factor", "precondition", "underlying_cause", mode="before")
+    @classmethod
+    def empty_factor_id_to_none(cls, v: Any) -> Any:
+        if isinstance(v, str) and v.strip() == "":
+            return None
+        return v
+
+
+class ObservationReviewCreate(BaseModel):
+    review_mode: str
+    review_comments: Optional[str] = None
+    next_action: str
+    unsafe_abc: List[ObservationUnsafeABC] = Field(default_factory=list)
+
+
+class ObservationReviewResponse(BaseModel):
+    id: int
+    observation_id: int
+    observation_ref: str
+    review_mode: str
+    review_comments: Optional[str] = None
+    next_action: str
+    primary_factor_id: Optional[int] = None
+    precondition_id: Optional[int] = None
+    underlying_cause_id: Optional[int] = None
+    cause_description: Optional[str] = None
+    reviewed_by: Optional[int] = None
+    reviewed_at: datetime
+    observation_status: str
 
 
 class IncidentUpdate(BaseModel):

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from database import get_db
-from models.enums import EnumValue
+from models.enums import EnumValue, ObservationEnumValue
 from models.reference import SubArea, OperationalActivity, Equipment, ShippingLine
 from models.user import User, Department
 
@@ -33,6 +33,36 @@ def get_all_enums(db: Session = Depends(get_db)):
     ]
     
     return result
+
+
+@router.get("/observation-enums/all")
+def get_all_observation_enums(db: Session = Depends(get_db)):
+    """Returns all observation enum categories in one payload."""
+    rows = (
+        db.query(ObservationEnumValue)
+        .order_by(ObservationEnumValue.category, ObservationEnumValue.sort_order, ObservationEnumValue.id)
+        .all()
+    )
+    result = {}
+    for row in rows:
+        if row.category not in result:
+            result[row.category] = []
+        result[row.category].append({"value": row.value, "parent": row.parent_value})
+    return result
+
+
+@router.get("/observation-enums/{category}")
+def get_observation_enum_by_category(
+    category: str,
+    parent: str = None,
+    db: Session = Depends(get_db),
+):
+    """Get values for a specific observation enum category. Use ?parent=X for subgroups."""
+    query = db.query(ObservationEnumValue).filter(ObservationEnumValue.category == category)
+    if parent:
+        query = query.filter(ObservationEnumValue.parent_value == parent)
+    rows = query.order_by(ObservationEnumValue.sort_order, ObservationEnumValue.id).all()
+    return {"category": category, "values": [r.value for r in rows]}
 
 
 @router.get("/{category}")

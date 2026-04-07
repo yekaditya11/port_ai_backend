@@ -6,7 +6,7 @@ from database import engine, SessionLocal, Base
 # Import all models so they register with Base.metadata
 import models  # noqa: F401
 
-from routers import enums, incidents, rca, actions, workflow, dashboard
+from routers import enums, incidents, rca, actions, workflow, dashboard, observations
 from seeds.seed_data import seed_all
 
 settings = get_settings()
@@ -29,6 +29,7 @@ app.add_middleware(
 # Register routers
 app.include_router(enums.router)
 app.include_router(incidents.router)
+app.include_router(observations.router)
 app.include_router(rca.router)
 app.include_router(actions.router)
 app.include_router(workflow.router)

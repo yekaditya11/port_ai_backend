@@ -19,3 +19,23 @@ class EnumValue(Base):
     __table_args__ = (
         Index("ix_enum_category_value", "category", "value"),
     )
+
+
+class ObservationEnumValue(Base):
+    __tablename__ = "observation_enums"
+
+    id = Column(Integer, primary_key=True)
+    category = Column(String(100), nullable=False)
+    value = Column(String(255), nullable=False)
+    parent_value = Column(String(255), nullable=True)
+    sort_order = Column(Integer, default=0)
+
+
+class ObservationReviewFactor(Base):
+    __tablename__ = "observation_review_factors"
+
+    id = Column(Integer, primary_key=True)
+    type = Column(String(50), nullable=False)
+    value = Column(String(255), nullable=False)
+    parent_id = Column(Integer, nullable=True)
+    sort_order = Column(Integer, default=0)
