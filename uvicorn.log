@@ -1,0 +1,797 @@
+INFO:     Will watch for changes in these directories: ['/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [2400] using WatchFiles
+INFO:     Started server process [2456]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Creating database tables...
+✅ Tables created!
+⚠️  Database already seeded. Skipping.
+INFO:     127.0.0.1:62891 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62948 - "GET /api/incidents/all/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62891 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62934 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62996 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'routers/incidents.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2456]
+INFO:     Started server process [2708]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Creating database tables...
+✅ Tables created!
+⚠️  Database already seeded. Skipping.
+INFO:     127.0.0.1:63073 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63074 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'routers/incidents.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2708]
+INFO:     Started server process [2876]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Creating database tables...
+✅ Tables created!
+⚠️  Database already seeded. Skipping.
+INFO:     127.0.0.1:63750 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63819 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63822 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63823 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63867 - "OPTIONS /api/incidents/?page=1&page_size=20&incident_ref=INC03280778 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63867 - "GET /api/incidents/?page=1&page_size=20&incident_ref=INC03280778 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63867 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64012 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64013 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64015 - "OPTIONS /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64013 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64012 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64015 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64013 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64017 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64218 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64220 - "OPTIONS /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64218 - "OPTIONS /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64222 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64219 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64219 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64225 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64219 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64226 - "GET /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64226 - "GET /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64657 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /api/incidents/?page=1&page_size=20&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64657 - "OPTIONS /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64657 - "OPTIONS /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64681 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64658 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65000 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65000 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64999 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65000 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65001 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65000 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65000 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50057 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50060 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50057 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50057 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50056 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50057 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50058 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50057 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "OPTIONS /api/incidents/?page=1&page_size=20&start_date=2026-04-08 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/incidents/?page=1&page_size=20&start_date=2026-04-08 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "OPTIONS /api/incidents/?page=1&page_size=20&start_date=2026-04-05 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /api/incidents/?page=1&page_size=20&start_date=2026-04-05 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "OPTIONS /api/incidents/?page=1&page_size=20&start_date=2026-04-05&end_date=2026-04-05 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/incidents/?page=1&page_size=20&start_date=2026-04-05&end_date=2026-04-05 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "OPTIONS /api/incidents/?page=1&page_size=20&start_date=2026-03-31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /api/incidents/?page=1&page_size=20&start_date=2026-03-31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50282 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /api/incidents/?page=1&page_size=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53378 - "OPTIONS /api/incidents/?page=1&page_size=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53378 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54515 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64667 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64668 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64669 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64671 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64668 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64668 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64667 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64668 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64675 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64902 - "OPTIONS /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64904 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64906 - "OPTIONS /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64675 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64675 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64673 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64675 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64908 - "GET /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64908 - "GET /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'schemas/schemas.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2876]
+INFO:     Started server process [9247]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'routers/incidents.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9247]
+INFO:     Started server process [9274]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Creating database tables...
+✅ Tables created!
+⚠️  Database already seeded. Skipping.
+INFO:     127.0.0.1:49749 - "GET /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50550 - "GET /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50642 - "GET /api/incidents/?page=1&page_size=6&status=Review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "OPTIONS /api/incidents/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50750 - "OPTIONS /api/incidents/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50747 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50749 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50749 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "GET /api/incidents/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50749 - "OPTIONS /api/enums/reference/sub-areas?area=Admin.%20Building HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50747 - "GET /api/enums/reference/sub-areas?area=Admin.%20Building HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50750 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "GET /api/incidents/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "GET /api/enums/reference/sub-areas?area=Admin.%20Building HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50811 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50811 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50752 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50811 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51285 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51285 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51289 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51289 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51288 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51289 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51901 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51900 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55422 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55423 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55426 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55427 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55429 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55429 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55422 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55429 - "GET /api/enums/all HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'models/incident_details.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9274]
+INFO:     Started server process [12241]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'schemas/schemas.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12241]
+INFO:     Started server process [12251]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'routers/incidents.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12251]
+INFO:     Started server process [12267]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Creating database tables...
+✅ Tables created!
+⚠️  Database already seeded. Skipping.
+INFO:     127.0.0.1:60406 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60407 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60409 - "OPTIONS /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "OPTIONS /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60407 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60413 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60413 - "GET /api/enums/reference/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60413 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60407 - "OPTIONS /api/incidents/?page=1&page_size=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60409 - "OPTIONS /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60414 - "OPTIONS /api/incidents/?page=1&page_size=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60415 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60413 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 37, in contextmanager_in_threadpool
+    raise e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 29, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in list_incidents
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in <listcomp>
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 75, in format_incident
+    } for p in incident.involved_persons
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 978, in _load_for_state
+    return self._emit_lazyload(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 1141, in _emit_lazyload
+    result = session.execute(
+             ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+[SQL: SELECT involved_persons.id AS involved_persons_id, involved_persons.incident_id AS involved_persons_incident_id, involved_persons.worker_type AS involved_persons_worker_type, involved_persons.person_id AS involved_persons_person_id, involved_persons.person_name AS involved_persons_person_name, involved_persons.employee_id AS involved_persons_employee_id, involved_persons.age AS involved_persons_age, involved_persons.department AS involved_persons_department, involved_persons.designation AS involved_persons_designation, involved_persons.particulars AS involved_persons_particulars 
+FROM involved_persons 
+WHERE %(param_1)s = involved_persons.incident_id]
+[parameters: {'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:60409 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 37, in contextmanager_in_threadpool
+    raise e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 29, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in list_incidents
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in <listcomp>
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 75, in format_incident
+    } for p in incident.involved_persons
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 978, in _load_for_state
+    return self._emit_lazyload(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 1141, in _emit_lazyload
+    result = session.execute(
+             ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+[SQL: SELECT involved_persons.id AS involved_persons_id, involved_persons.incident_id AS involved_persons_incident_id, involved_persons.worker_type AS involved_persons_worker_type, involved_persons.person_id AS involved_persons_person_id, involved_persons.person_name AS involved_persons_person_name, involved_persons.employee_id AS involved_persons_employee_id, involved_persons.age AS involved_persons_age, involved_persons.department AS involved_persons_department, involved_persons.designation AS involved_persons_designation, involved_persons.particulars AS involved_persons_particulars 
+FROM involved_persons 
+WHERE %(param_1)s = involved_persons.incident_id]
+[parameters: {'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:60415 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60409 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60409 - "GET /api/incidents/refs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60415 - "GET /api/enums/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60414 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 37, in contextmanager_in_threadpool
+    raise e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 29, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in list_incidents
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in <listcomp>
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 75, in format_incident
+    } for p in incident.involved_persons
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 978, in _load_for_state
+    return self._emit_lazyload(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 1141, in _emit_lazyload
+    result = session.execute(
+             ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+[SQL: SELECT involved_persons.id AS involved_persons_id, involved_persons.incident_id AS involved_persons_incident_id, involved_persons.worker_type AS involved_persons_worker_type, involved_persons.person_id AS involved_persons_person_id, involved_persons.person_name AS involved_persons_person_name, involved_persons.employee_id AS involved_persons_employee_id, involved_persons.age AS involved_persons_age, involved_persons.department AS involved_persons_department, involved_persons.designation AS involved_persons_designation, involved_persons.particulars AS involved_persons_particulars 
+FROM involved_persons 
+WHERE %(param_1)s = involved_persons.incident_id]
+[parameters: {'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:60415 - "GET /api/incidents/?page=1&page_size=6 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 37, in contextmanager_in_threadpool
+    raise e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/concurrency.py", line 29, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in list_incidents
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 191, in <listcomp>
+    return {"total": total, "items": [format_incident(i, db) for i in items]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yekaditya/Desktop/GITEX_AI/ports_ai_server/routers/incidents.py", line 75, in format_incident
+    } for p in incident.involved_persons
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 978, in _load_for_state
+    return self._emit_lazyload(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/strategies.py", line 1141, in _emit_lazyload
+    result = session.execute(
+             ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column involved_persons.person_name does not exist
+LINE 1: ..._persons.person_id AS involved_persons_person_id, involved_p...
+                                                             ^
+
+[SQL: SELECT involved_persons.id AS involved_persons_id, involved_persons.incident_id AS involved_persons_incident_id, involved_persons.worker_type AS involved_persons_worker_type, involved_persons.person_id AS involved_persons_person_id, involved_persons.person_name AS involved_persons_person_name, involved_persons.employee_id AS involved_persons_employee_id, involved_persons.age AS involved_persons_age, involved_persons.department AS involved_persons_department, involved_persons.designation AS involved_persons_designation, involved_persons.particulars AS involved_persons_particulars 
+FROM involved_persons 
+WHERE %(param_1)s = involved_persons.incident_id]
+[parameters: {'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:60409 - "GET /api/enums/all HTTP/1.1" 200 OK

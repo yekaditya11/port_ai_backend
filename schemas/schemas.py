@@ -48,6 +48,122 @@ class InvolvedPersonResponse(BaseModel):
         from_attributes = True
 
 
+# --- Inspection Schemas ---
+
+class WitnessCreate(BaseModel):
+    worker_type: Optional[str] = None
+    person_id: Optional[int] = None
+    person_name: Optional[str] = None
+    employee_id: Optional[str] = None
+    designation: Optional[str] = None
+    testimony: Optional[str] = None
+
+class WitnessResponse(BaseModel):
+    id: int
+    worker_type: Optional[str] = None
+    person_id: Optional[int] = None
+    person_name: Optional[str] = None
+    employee_id: Optional[str] = None
+    designation: Optional[str] = None
+    testimony: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class EquipmentInvolvedCreate(BaseModel):
+    ownership_type: str = "Owned"
+    equipment_id: Optional[int] = None
+    company_name: Optional[str] = None
+    equipment_ext_id: Optional[str] = None
+    operator_name: Optional[str] = None
+    equipment_position: Optional[str] = None
+    degree_of_damage: Optional[str] = None
+    is_predominant: bool = False
+
+class EquipmentInvolvedResponse(BaseModel):
+    id: int
+    ownership_type: str
+    equipment_id: Optional[int] = None
+    company_name: Optional[str] = None
+    equipment_ext_id: Optional[str] = None
+    operator_name: Optional[str] = None
+    equipment_position: Optional[str] = None
+    degree_of_damage: Optional[str] = None
+    is_predominant: bool
+
+    class Config:
+        from_attributes = True
+
+class EnvironmentalDetailSchema(BaseModel):
+    sensitive_area: Optional[bool] = None
+    sensitive_remarks: Optional[str] = None
+    remediation_required: Optional[bool] = None
+    remediation_remarks: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class TaskConditionSchema(BaseModel):
+    roster_shift: Optional[str] = None
+    traffic_volume: Optional[str] = None
+    traffic_flow: Optional[str] = None
+    lighting_condition: Optional[str] = None
+    road_surface: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class PermitDetailSchema(BaseModel):
+    work_permit_obtained: Optional[str] = None
+    remarks: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+
+# --- Investigation Schemas ---
+
+class InvestigationTeamSchema(BaseModel):
+    lead_investigator_id: Optional[int] = None
+    team_members: Optional[List[str]] = []
+
+    class Config:
+        from_attributes = True
+
+class SequenceOfEventCreate(BaseModel):
+    phase: str
+    event_date: Optional[datetime] = None
+    event_time: Optional[str] = None
+    description: Optional[str] = None
+    is_main_event: Optional[bool] = False
+
+class SequenceOfEventResponse(SequenceOfEventCreate):
+    id: int
+    class Config:
+        from_attributes = True
+
+class PeepoCreate(BaseModel):
+    category: Optional[str] = None
+    sub_category: Optional[str] = None
+    description: Optional[str] = None
+
+class PeepoResponse(PeepoCreate):
+    id: int
+    class Config:
+        from_attributes = True
+
+class InvestigationAnalysisCreate(BaseModel):
+    absent_failed_barriers: Optional[str] = None
+    immediate_cause: Optional[str] = None
+    precondition: Optional[str] = None
+    underlying_cause: Optional[str] = None
+
+class InvestigationAnalysisResponse(InvestigationAnalysisCreate):
+    id: int
+    class Config:
+        from_attributes = True
+
+
 # --- Incident Schemas ---
 
 class IncidentCreate(BaseModel):
@@ -77,8 +193,13 @@ class IncidentCreate(BaseModel):
     description: Optional[str] = None
     immediate_action: Optional[str] = None
     classification: Optional[str] = None
+    work_activity_classification: Optional[str] = None
     reported_by_id: Optional[int] = None
     reported_to_id: Optional[int] = None
+    is_regulatory_notification: Optional[bool] = False
+    regulatory_notifiable: Optional[str] = None
+    reviewer_notes: Optional[str] = None
+    reviewer_comments: Optional[str] = None
     reported_date: Optional[datetime] = None
     incident_date: Optional[datetime] = None
     attachments: Optional[List[AttachmentCreate]] = []
@@ -91,7 +212,7 @@ class IncidentCreate(BaseModel):
     )
     @classmethod
     def empty_string_to_none(cls, v: Any) -> Any:
-        if isinstance(v, str) and v.strip() == "":
+        if isinstance(v, str) and (v.strip() == "" or v == "Select"):
             return None
         return v
 
@@ -115,15 +236,31 @@ class IncidentResponse(BaseModel):
     time_of_day: Optional[str] = None
     weather: Optional[str] = None
     classification: Optional[str] = None
+    work_activity_classification: Optional[str] = None
     reportable: Optional[str] = None
     recordable: Optional[str] = None
     description: Optional[str] = None
     immediate_action: Optional[str] = None
+    is_regulatory_notification: Optional[bool] = False
+    regulatory_notifiable: Optional[str] = None
+    reviewer_notes: Optional[str] = None
+    reviewer_comments: Optional[str] = None
     reported_date: Optional[datetime] = None
     incident_date: Optional[datetime] = None
+    priority: Optional[str] = None
     created_at: Optional[datetime] = None
     attachments: Optional[List[AttachmentResponse]] = []
     involved_persons: Optional[List[InvolvedPersonResponse]] = []
+    witnesses: Optional[List[WitnessResponse]] = []
+    equipment_involved: Optional[List[EquipmentInvolvedResponse]] = []
+    environmental_detail: Optional[EnvironmentalDetailSchema] = None
+    task_condition: Optional[TaskConditionSchema] = None
+    permit_detail: Optional[PermitDetailSchema] = None
+    investigation_comments: Optional[str] = None
+    investigation_team: Optional[InvestigationTeamSchema] = None
+    sequence_of_events: Optional[List[SequenceOfEventResponse]] = []
+    peepos: Optional[List[PeepoResponse]] = []
+    investigation_analyses: Optional[List[InvestigationAnalysisResponse]] = []
 
     class Config:
         from_attributes = True
@@ -328,11 +465,28 @@ class IncidentUpdate(BaseModel):
     description: Optional[str] = None
     immediate_action: Optional[str] = None
     classification: Optional[str] = None
+    work_activity_classification: Optional[str] = None
     reported_by_id: Optional[int] = None
     reported_to_id: Optional[int] = None
+    is_regulatory_notification: Optional[bool] = None
+    regulatory_notifiable: Optional[str] = None
+    reviewer_notes: Optional[str] = None
+    reviewer_comments: Optional[str] = None
     status: Optional[str] = None
     reported_date: Optional[datetime] = None
     incident_date: Optional[datetime] = None
+    priority: Optional[str] = None
+    involved_persons: Optional[List[InvolvedPersonCreate]] = None
+    witnesses: Optional[List[WitnessCreate]] = None
+    equipment_involved: Optional[List[EquipmentInvolvedCreate]] = None
+    environmental_detail: Optional[EnvironmentalDetailSchema] = None
+    task_condition: Optional[TaskConditionSchema] = None
+    permit_detail: Optional[PermitDetailSchema] = None
+    investigation_comments: Optional[str] = None
+    investigation_team: Optional[InvestigationTeamSchema] = None
+    sequence_of_events: Optional[List[SequenceOfEventCreate]] = None
+    peepos: Optional[List[PeepoCreate]] = None
+    investigation_analyses: Optional[List[InvestigationAnalysisCreate]] = None
 
     class Config:
         from_attributes = True
@@ -423,6 +577,5 @@ class UserResponse(BaseModel):
     designation: Optional[str] = None
     department_id: Optional[int] = None
     role: Optional[str] = None
-
     class Config:
         from_attributes = True

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from database import Base
@@ -31,6 +31,7 @@ class Incident(Base):
     # Severity
     actual_severity = Column(String(50), nullable=True)
     potential_severity = Column(String(50), nullable=True)
+    priority = Column(String(50), nullable=True)
 
     # People
     shift_manager_id = Column(Integer, ForeignKey("users.id"), nullable=True)
@@ -58,7 +59,15 @@ class Incident(Base):
     description = Column(Text, nullable=True)
     immediate_action = Column(Text, nullable=True)
     classification = Column(String(200), nullable=True)
+    work_activity_classification = Column(String(100), nullable=True)
     cctv_footages = Column(String(500), nullable=True)
+
+    # Regulatory & Reviewer Feedback
+    is_regulatory_notification = Column(Boolean, default=False)
+    regulatory_notifiable = Column(String(10), nullable=True)
+    reviewer_notes = Column(Text, nullable=True)
+    reviewer_comments = Column(Text, nullable=True)
+    investigation_comments = Column(Text, nullable=True)
 
     # Timestamps
     created_at = Column(DateTime, server_default=func.now())
@@ -81,3 +90,7 @@ class Incident(Base):
     workflow_event = relationship("WorkflowEvent", back_populates="incident", uselist=False, cascade="all, delete-orphan")
     root_cause_analyses = relationship("RootCauseAnalysis", back_populates="incident", cascade="all, delete-orphan")
     attachments = relationship("IncidentAttachment", back_populates="incident", cascade="all, delete-orphan")
+    investigation_team = relationship("InvestigationTeam", back_populates="incident", uselist=False, cascade="all, delete-orphan")
+    sequence_of_events = relationship("SequenceOfEvent", back_populates="incident", cascade="all, delete-orphan")
+    peepos = relationship("Peepo", back_populates="incident", cascade="all, delete-orphan")
+    investigation_analyses = relationship("InvestigationAnalysis", back_populates="incident", cascade="all, delete-orphan")

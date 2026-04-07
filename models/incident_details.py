@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Text, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, Boolean, ForeignKey, DateTime
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -100,3 +101,54 @@ class PermitDetail(Base):
     remarks = Column(Text, nullable=True)
 
     incident = relationship("Incident", back_populates="permit_detail")
+
+
+class InvestigationTeam(Base):
+    __tablename__ = "investigation_teams"
+
+    id = Column(Integer, primary_key=True, index=True)
+    incident_id = Column(Integer, ForeignKey("incidents.id", ondelete="CASCADE"), nullable=False, unique=True)
+    lead_investigator_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    team_members = Column(ARRAY(String(200)), nullable=True)
+
+    incident = relationship("Incident", back_populates="investigation_team")
+    lead_investigator = relationship("User")
+
+
+class SequenceOfEvent(Base):
+    __tablename__ = "sequence_of_events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    incident_id = Column(Integer, ForeignKey("incidents.id", ondelete="CASCADE"), nullable=False)
+    phase = Column(String(100), nullable=False)
+    event_date = Column(DateTime, nullable=True)
+    event_time = Column(String(50), nullable=True)
+    description = Column(Text, nullable=True)
+    is_main_event = Column(Boolean, default=False)
+
+    incident = relationship("Incident", back_populates="sequence_of_events")
+
+
+class Peepo(Base):
+    __tablename__ = "peepos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    incident_id = Column(Integer, ForeignKey("incidents.id", ondelete="CASCADE"), nullable=False)
+    category = Column(String(100), nullable=True)
+    sub_category = Column(String(200), nullable=True)
+    description = Column(Text, nullable=True)
+
+    incident = relationship("Incident", back_populates="peepos")
+
+
+class InvestigationAnalysis(Base):
+    __tablename__ = "investigation_analyses"
+
+    id = Column(Integer, primary_key=True, index=True)
+    incident_id = Column(Integer, ForeignKey("incidents.id", ondelete="CASCADE"), nullable=False)
+    absent_failed_barriers = Column(Text, nullable=True)
+    immediate_cause = Column(String(500), nullable=True)
+    precondition = Column(Text, nullable=True)
+    underlying_cause = Column(Text, nullable=True)
+
+    incident = relationship("Incident", back_populates="investigation_analyses")
