@@ -269,7 +269,7 @@ def _run_observation_media_prompt(
             raise ValueError("No valid media files were successfully processed.")
 
         response = client.models.generate_content(
-            model="gemini-flash-latest",
+            model="gemini-3-flash-preview",
             contents=parts + [prompt],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
