@@ -404,12 +404,14 @@ def create_observation(data: ObservationCreate, db: Session = Depends(get_db)):
         **observation_data,
     )
 
+    import logging
     try:
         db.add(observation)
         db.commit()
         db.refresh(observation)
-    except SQLAlchemyError:
+    except SQLAlchemyError as e:
         db.rollback()
+        logging.error("Failed to create observation due to DB error:", exc_info=e)
         raise HTTPException(status_code=500, detail="Failed to create observation")
 
     return observation
